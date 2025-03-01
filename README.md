@@ -11,3 +11,5 @@ The project contains an example of clean architecture through the use of modern,
 
 Added nuget packages:
 - Microsoft.Extensions.DependencyInjection
+
+Work on the project is extended.
