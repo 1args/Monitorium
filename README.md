@@ -5,4 +5,6 @@ Used:
 - Command operation via RelayCommand, ObservableObject via INotifyPropertyChanged
 - DependencyInjection
 - Own navigation service
-- Slitting into separate styles
+- Splitting into separate styles
+
+The project contains an example of clean architecture through the use of modern, relevant solutions.
