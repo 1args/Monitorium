@@ -6,13 +6,27 @@
              xmlns:view="clr-namespace:WpfApp2.MVVM.View">
     <Application.Resources>
 
-        <DataTemplate DataType="{x:Type TypeName=viewModel:HomeViewModel}">
-            <view:HomeView/>
-        </DataTemplate>
+        <ResourceDictionary>
 
-        <DataTemplate DataType="{x:Type TypeName=viewModel:SettingsViewModel}">
-            <view:SettingsView/>
-        </DataTemplate>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Colors !-->
+                <ResourceDictionary Source="Styles/Colors.xaml"/>
+                <!--#region Styles-->
+                <!-- Buttons !-->
+                <ResourceDictionary Source="Styles/Buttons.xaml"/>
+                <!--#endregion-->
+            </ResourceDictionary.MergedDictionaries>
 
+            <!-- HomeView !-->
+            <DataTemplate DataType="{x:Type TypeName=viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <!-- SettingsView !-->
+            <DataTemplate DataType="{x:Type TypeName=viewModel:SettingsViewModel}">
+                <view:SettingsView/>
+            </DataTemplate>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
