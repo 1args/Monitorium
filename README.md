@@ -8,3 +8,6 @@ Used:
 - Splitting into separate styles
 
 The project contains an example of clean architecture through the use of modern, relevant solutions.
+
+Added nuget packages:
+- Microsoft.Extensions.DependencyInjection
