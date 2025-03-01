@@ -1,3 +1,3 @@
 ﻿namespace WpfApp2.Core;
 
-public class ViewModel : ObservableObject { }
+public abstract class ViewModel : ObservableObject { }

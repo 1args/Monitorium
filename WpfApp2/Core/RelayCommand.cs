@@ -4,14 +4,14 @@ namespace WpfApp2.Core;
 
 public class RelayCommand(
     Action<object> execute,
-    Predicate<object> canExecute = null!) 
-    : ICommand
+    Func<object, bool> canExecute = null) : 
+    ICommand
 {
     public event EventHandler? CanExecuteChanged;
 
-    public bool CanExecute(object? parameter) => 
-        canExecute(parameter!);
+    public bool CanExecute(object parameter) =>
+        canExecute == null || CanExecute(parameter);
 
-    public void Execute(object? parameter) => 
-        execute(parameter!);
+    public void Execute(object parameter) =>
+        execute(parameter);
 }

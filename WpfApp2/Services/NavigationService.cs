@@ -1,5 +1,6 @@
 ﻿using WpfApp2.Core;
 using WpfApp2.Interfaces;
+using WpfApp2.MVVM.ViewModel;
 
 namespace WpfApp2.Services;
 
@@ -8,7 +9,8 @@ public class NavigationService(
     ObservableObject,
     INavigationService
 {
-    private ViewModel _currentView;
+    private ViewModel _currentView =
+        viewModelFactory.Invoke(typeof(HomeViewModel));
 
     public ViewModel CurrentView
     {
@@ -22,7 +24,6 @@ public class NavigationService(
 
     public void NavigationTo<TViewModel>() where TViewModel : ViewModel
     {
-        var viewModel = viewModelFactory.Invoke(typeof(TViewModel));
-        CurrentView = _currentView;
+        CurrentView = viewModelFactory.Invoke(typeof(TViewModel));
     }
 }
