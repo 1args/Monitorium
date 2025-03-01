@@ -24,6 +24,7 @@ public class MainViewModel : Core.ViewModel
     public ICommand MoveWindowCommand { get; set; }
     public ICommand MinimizeWindowCommand { get; set; }
     public ICommand MaximizeWindowCommand { get; set; }
+    public ICommand CloseWindowCommand { get; set; }
 
     public MainViewModel(
         INavigationService navigationService)
@@ -50,5 +51,8 @@ public class MainViewModel : Core.ViewModel
                 ? WindowState.Normal 
                 : WindowState.Maximized;
         });
+
+        CloseWindowCommand = new RelayCommand(_ =>
+            Application.Current.Shutdown());
     }
 }

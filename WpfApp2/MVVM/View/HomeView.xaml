@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="450"
-             Background="#212121">
+             Background="#141414">
     <Grid>
 
         <TextBlock

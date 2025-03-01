@@ -6,17 +6,60 @@
         xmlns:local="clr-namespace:WpfApp2.MVVM.View"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="450"
-        Width="800">
+        Height="600"
+        Width="1050"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="#0d0d0d">
 
     <Grid>
 
+        <!-- Rows !-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Columns !-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel>
+        
+
+        <!-- Program TextBlock and Button -->
+        <TextBlock 
+            Text="Program" 
+            Foreground="#FFFFFF"
+            Margin="5,5,0,0"
+            VerticalAlignment="Top"/>
+
+        <StackPanel
+            Background="#050505"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Orientation="Horizontal"
+            Grid.Row="0"
+            Grid.Column="1">
+            <Button
+                Content="-"
+                Style="{StaticResource WindowButtonStyle}"
+                Command="{Binding MinimizeWindowCommand}"/>
+            <Button
+                Content="[]"
+                Style="{StaticResource WindowButtonStyle}"
+                Command="{Binding MaximizeWindowCommand}"/>
+            <Button
+                Content="X"
+                Style="{StaticResource WindowButtonStyle}"
+                Command="{Binding CloseWindowCommand}"/>
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="1" 
+            Grid.Column="0">
             <Button
                 Height="45"
                 Content="HomeView"
@@ -29,7 +72,17 @@
 
         <ContentControl 
             Grid.Column="1"
+            Grid.Row="1"
             Content="{Binding NavigationService.CurrentView}"/>
+
+        <Grid
+            Grid.Row="0" Grid.ColumnSpan="2">
+            <Grid.InputBindings>
+                <MouseBinding 
+                    MouseAction="LeftClick"
+                    Command="{Binding MoveWindowCommand}"/>
+            </Grid.InputBindings>
+        </Grid>
 
     </Grid>
 </Window>
