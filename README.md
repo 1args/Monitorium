@@ -1,4 +1,4 @@
-.# WPF App
+# WPF App
 
 Used:
 - MVVM Pattern
