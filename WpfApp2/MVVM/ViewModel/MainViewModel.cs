@@ -31,8 +31,6 @@ public class MainViewModel : Core.ViewModel
     {
         _navigationService = navigationService;
 
-        var mainWindow = Application.Current.MainWindow!;
-
         NavigateToHomeViewCommand = new RelayCommand(_ =>
             NavigationService.NavigationTo<HomeViewModel>());
 
@@ -40,14 +38,16 @@ public class MainViewModel : Core.ViewModel
             NavigationService.NavigationTo<SettingsViewModel>());
 
         MoveWindowCommand = new RelayCommand(_ =>
-            mainWindow.DragMove());
+            Application.Current.MainWindow!.DragMove());
 
         MinimizeWindowCommand = new RelayCommand(_ =>
-            mainWindow.WindowState = WindowState.Minimized);
+            Application.Current.MainWindow!.WindowState = WindowState.Minimized);
 
         MaximizeWindowCommand = new RelayCommand(_ =>
         {
-            mainWindow.WindowState = mainWindow.WindowState == WindowState.Maximized 
+            var state = Application.Current.MainWindow!.WindowState;
+
+            state = state == WindowState.Maximized 
                 ? WindowState.Normal 
                 : WindowState.Maximized;
         });
