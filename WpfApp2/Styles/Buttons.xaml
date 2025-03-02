@@ -15,13 +15,9 @@
                         Name="border"
                         Background="{TemplateBinding Background}"
                         BorderThickness="{TemplateBinding BorderThickness}">
-                        <TextBlock
-                            Text="{TemplateBinding Content}"
+                        <ContentPresenter
                             VerticalAlignment="Center"
-                            HorizontalAlignment="Center"
-                            Foreground="#FFFFFF">
-                            
-                        </TextBlock>
+                            HorizontalAlignment="Center"/>
                     </Border>
 
                     <ControlTemplate.Triggers>
@@ -35,5 +31,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
 
 </ResourceDictionary>

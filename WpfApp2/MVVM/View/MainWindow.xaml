@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2.MVVM.View"
+        xmlns:iconPack="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="600"
@@ -15,74 +16,93 @@
 
     <Grid>
 
-        <!-- Rows !-->
+        <!-- Rows -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
+            <!-- Toolbar height -->
+            <RowDefinition Height="40"/>
+            <!-- Main content -->
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <!-- Columns !-->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-        
-
-        <!-- Program TextBlock and Button -->
-        <TextBlock 
-            Text="Program" 
-            Foreground="#FFFFFF"
-            Margin="5,5,0,0"
-            VerticalAlignment="Top"/>
-
-        <StackPanel
-            Background="#050505"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Orientation="Horizontal"
+        <!-- Toolbar -->
+        <Grid 
             Grid.Row="0"
-            Grid.Column="1">
-            <Button
-                Content="-"
-                Style="{StaticResource WindowButtonStyle}"
-                Command="{Binding MinimizeWindowCommand}"/>
-            <Button
-                Content="[]"
-                Style="{StaticResource WindowButtonStyle}"
-                Command="{Binding MaximizeWindowCommand}"/>
-            <Button
-                Content="X"
-                Style="{StaticResource WindowButtonStyle}"
-                Command="{Binding CloseWindowCommand}"/>
-        </StackPanel>
+            VerticalAlignment="Center"
+            Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="95"/>
+            </Grid.ColumnDefinitions>
 
-        <StackPanel
-            Grid.Row="1" 
-            Grid.Column="0">
-            <Button
-                Height="45"
-                Content="HomeView"
-                Command="{Binding NavigateToHomeViewCommand}"/>
-            <Button
-                Height="45"
-                Content="SettingsView"
-                Command="{Binding NavigateToSettingsViewCommand}"/>
-        </StackPanel>
+            <!-- Title -->
+            <TextBlock
+                Text="Program"
+                Foreground="White"
+                VerticalAlignment="Center" 
+                Margin="15,0,0,0"/>
 
-        <ContentControl 
-            Grid.Column="1"
-            Grid.Row="1"
-            Content="{Binding NavigationService.CurrentView}"/>
+            <!-- Window control buttons -->
+            <StackPanel 
+                Orientation="Horizontal" 
+                HorizontalAlignment="Right" 
+                Margin="0,0,5,0"
+                Grid.Column="1">
+                <Button
+                    Content="➖" 
+                    Foreground="#b5b5b5"
+                    FontSize="9"
+                    Style="{StaticResource WindowButtonStyle}" 
+                    Command="{Binding MinimizeWindowCommand}"/>
+                <Button
+                    Style="{StaticResource WindowButtonStyle}" 
+                    Command="{Binding MaximizeWindowCommand}">
+                    <iconPack:PackIconModern
+                        Kind="WindowRestore"
+                        Foreground="#b5b5b5"
+                        Height="10"
+                        Width="10"/>
+                </Button>
+                <Button
+                    Style="{StaticResource WindowButtonStyle}"
+                    Command="{Binding CloseWindowCommand}">
+                    <iconPack:PackIconModern
+                        Kind="Close"
+                        Foreground="#b5b5b5"
+                        Height="10"
+                        Width="10"/>
+                </Button>
+            </StackPanel>
 
-        <Grid
-            Grid.Row="0" Grid.ColumnSpan="2">
+            <!-- DragMove -->
             <Grid.InputBindings>
-                <MouseBinding 
-                    MouseAction="LeftClick"
-                    Command="{Binding MoveWindowCommand}"/>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding MoveWindowCommand}"/>
             </Grid.InputBindings>
         </Grid>
 
+        <!-- Main content -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Navigation bar -->
+            <StackPanel 
+                Grid.Column="0">
+                <Button 
+                    Height="45"
+                    Content="HomeView"
+                    Command="{Binding NavigateToHomeViewCommand}"/>
+                <Button 
+                    Height="45" 
+                    Content="SettingsView" 
+                    Command="{Binding NavigateToSettingsViewCommand}"/>
+            </StackPanel>
+
+            <!-- View -->
+            <ContentControl
+                Grid.Column="1" 
+                Content="{Binding NavigationService.CurrentView}"/>
+        </Grid>
     </Grid>
 </Window>
