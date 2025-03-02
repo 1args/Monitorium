@@ -15,74 +15,80 @@
 
     <Grid>
 
-        <!-- Rows !-->
+        <!-- Rows -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
+            <!-- Toolbar height -->
+            <RowDefinition Height="30"/>
+            <!-- Main content -->
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <!-- Columns !-->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        <!-- Toolbar -->
+        <Grid 
+            Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="90"/>
+            </Grid.ColumnDefinitions>
 
-        
+            <!-- Title -->
+            <TextBlock
+                Text="Program"
+                Foreground="White"
+                VerticalAlignment="Center" 
+                Margin="10,0,0,0"/>
 
-        <!-- Program TextBlock and Button -->
-        <TextBlock 
-            Text="Program" 
-            Foreground="#FFFFFF"
-            Margin="5,5,0,0"
-            VerticalAlignment="Top"/>
+            <!-- Window control buttons -->
+            <StackPanel 
+                Orientation="Horizontal" 
+                HorizontalAlignment="Right" 
+                Grid.Column="1">
+                <Button
+                    Content="-" 
+                    Style="{StaticResource WindowButtonStyle}" 
+                    Command="{Binding MinimizeWindowCommand}"/>
+                <Button
+                    Content="□"
+                    Style="{StaticResource WindowButtonStyle}" 
+                    Command="{Binding MaximizeWindowCommand}"/>
+                <Button
+                    Content="X"
+                    Style="{StaticResource WindowButtonStyle}"
+                    Command="{Binding CloseWindowCommand}"/>
+            </StackPanel>
 
-        <StackPanel
-            Background="#050505"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Orientation="Horizontal"
-            Grid.Row="0"
-            Grid.Column="1">
-            <Button
-                Content="-"
-                Style="{StaticResource WindowButtonStyle}"
-                Command="{Binding MinimizeWindowCommand}"/>
-            <Button
-                Content="[]"
-                Style="{StaticResource WindowButtonStyle}"
-                Command="{Binding MaximizeWindowCommand}"/>
-            <Button
-                Content="X"
-                Style="{StaticResource WindowButtonStyle}"
-                Command="{Binding CloseWindowCommand}"/>
-        </StackPanel>
-
-        <StackPanel
-            Grid.Row="1" 
-            Grid.Column="0">
-            <Button
-                Height="45"
-                Content="HomeView"
-                Command="{Binding NavigateToHomeViewCommand}"/>
-            <Button
-                Height="45"
-                Content="SettingsView"
-                Command="{Binding NavigateToSettingsViewCommand}"/>
-        </StackPanel>
-
-        <ContentControl 
-            Grid.Column="1"
-            Grid.Row="1"
-            Content="{Binding NavigationService.CurrentView}"/>
-
-        <Grid
-            Grid.Row="0" Grid.ColumnSpan="2">
+            <!-- DragMove -->
             <Grid.InputBindings>
                 <MouseBinding 
-                    MouseAction="LeftClick"
+                    MouseAction="LeftClick" 
                     Command="{Binding MoveWindowCommand}"/>
             </Grid.InputBindings>
         </Grid>
 
+        <!-- Main content -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Navigation bar -->
+            <StackPanel 
+                Grid.Column="0">
+                <Button 
+                    Height="45"
+                    Content="HomeView"
+                    Command="{Binding NavigateToHomeViewCommand}"/>
+                <Button 
+                    Height="45" 
+                    Content="SettingsView" 
+                    Command="{Binding NavigateToSettingsViewCommand}"/>
+            </StackPanel>
+
+            <!-- View -->
+            <ContentControl
+                Grid.Column="1" 
+                Content="{Binding NavigationService.CurrentView}"/>
+        </Grid>
     </Grid>
 </Window>
