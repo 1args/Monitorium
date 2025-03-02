@@ -11,5 +11,6 @@ The project contains an example of clean architecture through the use of modern,
 
 Added nuget packages:
 - Microsoft.Extensions.DependencyInjection
+- MahApps.Metro.IconPacks
 
 Work on the project is extended. When the project is finished, you will be able to watch the result in the form of a video.
