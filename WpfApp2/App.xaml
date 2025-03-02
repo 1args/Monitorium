@@ -27,6 +27,11 @@
                 <view:SettingsView/>
             </DataTemplate>
 
+            <!-- HardwareView !-->
+            <DataTemplate DataType="{x:Type TypeName=viewModel:HardwareViewModel}">
+                <view:HardwareView/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

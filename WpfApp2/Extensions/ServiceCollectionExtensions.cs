@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using WpfApp2.Core;
+using WpfApp2.Helpers;
 using WpfApp2.Interfaces;
 using WpfApp2.MVVM.ViewModel;
 using WpfApp2.Services;
@@ -21,7 +22,11 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<MainViewModel>();
         services.AddSingleton<HomeViewModel>();
         services.AddSingleton<SettingsViewModel>();
+        services.AddSingleton<HardwareViewModel>();
 
         services.AddSingleton<INavigationService, NavigationService>();
+        services.AddSingleton<IHardwareInfoService, HardwareInfoService>();
+
+        services.AddSingleton<HardwareDataProvider>();
     }
 }

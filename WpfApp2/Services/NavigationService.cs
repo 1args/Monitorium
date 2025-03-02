@@ -22,7 +22,7 @@ public class NavigationService(
         }
     }
 
-    public void NavigationTo<TViewModel>() where TViewModel : ViewModel
+    public void NavigateTo<TViewModel>() where TViewModel : ViewModel
     {
         CurrentView = viewModelFactory.Invoke(typeof(TViewModel));
     }

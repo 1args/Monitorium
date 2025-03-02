@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="600"
+        MinHeight="600"
         Width="1050"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
@@ -36,8 +37,8 @@
 
             <!-- Title -->
             <TextBlock
-                Text="Program"
-                Foreground="White"
+                Text="Monitorium"
+                Foreground="#b5b5b5"
                 VerticalAlignment="Center" 
                 Margin="15,0,0,0"/>
 
@@ -97,6 +98,10 @@
                     Height="45" 
                     Content="SettingsView" 
                     Command="{Binding NavigateToSettingsViewCommand}"/>
+                <Button 
+                    Height="45" 
+                    Content="HardwareView" 
+                    Command="{Binding NavigateToHardwareViewCommand}"/>
             </StackPanel>
 
             <!-- View -->
