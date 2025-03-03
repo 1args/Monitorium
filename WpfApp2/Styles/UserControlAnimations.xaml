@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="FadeInUserControlStyle" TargetType="UserControl">
+        <Setter Property="Opacity" Value="0"/>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation 
+                            Storyboard.TargetProperty="Opacity"
+                            From="0" To="1" Duration="0:0:1.5"
+                          />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+
+</ResourceDictionary>

@@ -104,10 +104,13 @@
                     Command="{Binding NavigateToHardwareViewCommand}"/>
             </StackPanel>
 
+            <Grid Grid.Column="1" Background="#141414"/>
+
             <!-- View -->
             <ContentControl
                 Grid.Column="1" 
-                Content="{Binding NavigationService.CurrentView}"/>
+                Content="{Binding NavigationService.CurrentView}"
+                Background="#141414"/>
         </Grid>
     </Grid>
 </Window>

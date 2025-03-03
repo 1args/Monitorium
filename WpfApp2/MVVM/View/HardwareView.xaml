@@ -8,7 +8,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="1000" 
              d:DesignWidth="1000"
-             Background="#141414">
+             Background="#141414"
+             Style="{StaticResource FadeInUserControlStyle}">
+
     <ScrollViewer
         Background="Transparent"
         Foreground="Transparent">
@@ -25,7 +27,6 @@
                 Margin="35,25"/>
 
             <ItemsControl
-
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
                 Margin="25,75,0,0"
@@ -35,11 +36,37 @@
                         <WrapPanel/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="RenderTransform">
+                            <Setter.Value>
+                                <TranslateTransform Y="50"/>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Opacity" Value="0"/>
+
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation 
+                                            Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)"
+                                            From="50" To="0" Duration="0:0:0.5"/>
+
+                                        <DoubleAnimation 
+                                            Storyboard.TargetProperty="Opacity"
+                                            From="0" To="1" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border 
-                            Background="#212121"
-                            BorderThickness="3"
+                            Background="Transparent"
+                            BorderThickness="2"
                             BorderBrush="#2b2b2b"
                             CornerRadius="5"
                             Margin="10" 

@@ -7,7 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="450"
              d:DesignWidth="450"
-             Background="#141414">
+             Background="#141414"
+             Style="{StaticResource FadeInUserControlStyle}">
+
     <Grid>
 
         <TextBlock

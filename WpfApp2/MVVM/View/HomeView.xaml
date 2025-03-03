@@ -7,15 +7,72 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="450"
-             Background="#141414">
+             Background="#141414"
+             Style="{StaticResource FadeInUserControlStyle}">
+
     <Grid>
 
-        <TextBlock
-            Text="HomeView"
-            FontSize="25"
-            Foreground="#FFFFFF"
+        <StackPanel
+            Orientation="Vertical"
             VerticalAlignment="Center"
-            HorizontalAlignment="Center"/>
+            HorizontalAlignment="Center"
+            Margin="35,25">
+            <TextBlock
+                Text="{Binding UserName, StringFormat='Welcome, {0}'}"
+                FontWeight="SemiBold"
+                FontSize="22"
+                Foreground="White"
+                HorizontalAlignment="Center"/>
+            <TextBlock
+                Width="450"
+                Margin="0,15,0,0"
+                Text="This software is designed to view the characteristics of the system hardware. It provides the user with information about key components."
+                TextWrapping="Wrap"
+                TextAlignment="Center"
+                FontSize="15"
+                Foreground="#b5b5b5"
+                HorizontalAlignment="Center"/>
+
+            <ItemsControl 
+                ItemsSource="{Binding HardwareDetails}"
+                Margin="0,25,0,0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                            Margin="10,10,0,0"
+                            BorderThickness="1"
+                            BorderBrush="#2b2b2b"
+                            Padding="15,15"
+                            CornerRadius="5">
+                            <Border.ToolTip>
+                                <ToolTip 
+                                    Background="Transparent" 
+                                    BorderThickness="0">
+                                    <Border 
+                                        Background="#0d0d0d"
+                                        CornerRadius="5"
+                                        BorderThickness="1"
+                                        BorderBrush="#2b2b2b">
+                                        <TextBlock 
+                                            Padding="10"
+                                            Text="Go to hardware page"
+                                            Foreground="#b5b5b5"/>
+                                    </Border>
+                                </ToolTip>
+                            </Border.ToolTip>
+                            
+                            <TextBlock
+                                Text="{Binding Name}"
+                                FontSize="15"
+                                FontWeight="DemiBold"
+                                Foreground="#c9615b"/>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+                
+            
+        </StackPanel>
 
     </Grid>
 
