@@ -51,8 +51,9 @@ public class HardwareInfoService(
     private string GetProcessorInfo()
     {
         return _hdProvider.GetHardwareData(
-            "Win32_Processor",
-            ["Name",
+            "Win32_Processor", 
+            [
+                "Name",
                 "Manufacturer",
                 "Caption",
                 "L2CacheSize",
@@ -68,14 +69,16 @@ public class HardwareInfoService(
                 "VirtualizationFirmwareEnabled",
                 "CurrentVoltage",
                 "AddressWidth",
-                "Status"]);
+                "Status"
+            ]);
     }
 
     private string GetGraphicsCardInfo()
     {
         return _hdProvider.GetHardwareData(
             "Win32_VideoController", 
-            ["Name",
+            [
+                "Name",
                 "AdapterCompatibility",
                 "CurrentHorizontalResolution",
                 "CurrentVerticalResolution",
@@ -85,14 +88,16 @@ public class HardwareInfoService(
                 "AdapterRAM",
                 "DriverVersion",
                 "Monochrome",
-                "Status"]);
+                "Status"
+            ]);
     }
 
     private string GetHardDriveInfo()
     {
         return _hdProvider.GetHardwareData(
             "Win32_DiskDrive",
-            ["Name",
+            [
+                "Name",
                 "Manufacturer",
                 "Model", 
                 "FirmwareRevision",
@@ -107,25 +112,29 @@ public class HardwareInfoService(
                 "TotalTracks",
                 "TracksPerCylinder", 
                 "BytesPerSector",
-                "Status"]);
+                "Status"
+            ]);
     }
 
     private string GetDisplayInfo()
     {
         return _hdProvider.GetHardwareData(
             "Win32_DesktopMonitor",
-            ["Name", 
+            [
+                "Name", 
                 "MonitorManufacturer", 
                 "PNPDeviceID",
                 "DeviceID",
-                "Status"]);
+                "Status"
+            ]);
     }
 
     private string GetRamInfo()
     {
         return _hdProvider.GetHardwareData(
             "Win32_PhysicalMemory",
-            ["Name",
+            [
+                "Name",
                 "SerialNumber",
                 "Speed",
                 "ConfiguredVoltage",
@@ -137,6 +146,7 @@ public class HardwareInfoService(
                 "TotalWidth", 
                 "TypeDetail",
                 "SMBIOSMemoryType",
-                "Capacity"]);
+                "Capacity"
+            ]);
     }
 }

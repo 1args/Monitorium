@@ -20,6 +20,7 @@ public partial class App : Application
     {
         var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
         mainWindow.Show();
+
         base.OnStartup(e);
     }
 }
