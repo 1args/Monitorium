@@ -15,4 +15,4 @@ Added nuget packages:
 - MahApps.Metro.IconPacks
 - System.Management
 
-Work on the project is extended. When the project is finished, you will be able to watch the result in the form of a video.
+[**[>] Result**](https://youtu.be/1lxdulQuZ-M)
