@@ -15,4 +15,4 @@ Added nuget packages:
 - MahApps.Metro.IconPacks
 - System.Management
 
-[**[>] Result (Youtube video)**](https://youtu.be/1lxdulQuZ-M)
+[**[>] Result (Video)**](https://youtu.be/1lxdulQuZ-M)
