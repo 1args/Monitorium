@@ -24,11 +24,6 @@
                 <view:HomeView/>
             </DataTemplate>
 
-            <!-- SettingsView !-->
-            <DataTemplate DataType="{x:Type TypeName=viewModel:SettingsViewModel}">
-                <view:SettingsView/>
-            </DataTemplate>
-
             <!-- HardwareView !-->
             <DataTemplate DataType="{x:Type TypeName=viewModel:HardwareViewModel}">
                 <view:HardwareView/>

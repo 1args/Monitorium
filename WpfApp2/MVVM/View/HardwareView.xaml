@@ -8,12 +8,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="1000" 
              d:DesignWidth="1000"
-             Background="#141414"
+             Background="{StaticResource GrayV2Brush}"
              Style="{StaticResource FadeInUserControlStyle}">
 
     <ScrollViewer
-        Background="Transparent"
-        Foreground="Transparent">
+        VerticalScrollBarVisibility="Hidden">
 
         <Grid>
 
@@ -67,11 +66,11 @@
                         <Border 
                             Background="Transparent"
                             BorderThickness="2"
-                            BorderBrush="#2b2b2b"
+                            BorderBrush="{StaticResource GrayV4VBrush}"
                             CornerRadius="5"
                             Margin="10" 
                             Padding="25"
-                            Height="475"
+                            Height="480"
                             Width="250">
                             <Border.Style>
                                 <Style 
@@ -86,7 +85,7 @@
                                                         To="265" Duration="0:0:0.3"/>
                                                     <DoubleAnimation
                                                         Storyboard.TargetProperty="Height"
-                                                        To="490" Duration="0:0:0.3"/>
+                                                        To="495" Duration="0:0:0.3"/>
                                                 </Storyboard>
                                             </BeginStoryboard>
                                         </EventTrigger>
@@ -99,7 +98,7 @@
                                                         To="250" Duration="0:0:0.3"/>
                                                     <DoubleAnimation
                                                         Storyboard.TargetProperty="Height"
-                                                        To="475" Duration="0:0:0.3"/>
+                                                        To="480" Duration="0:0:0.3"/>
                                                 </Storyboard>
                                             </BeginStoryboard>
                                         </EventTrigger>
@@ -109,7 +108,7 @@
                             <StackPanel>
                                 <iconPack:PackIconModern
                                     Kind="{Binding Icon}"
-                                    Foreground="#c9615b"
+                                    Foreground="{StaticResource RedBrush}"
                                     HorizontalAlignment="Center"
                                     Margin="0,15,0,0"
                                     Height="75"
@@ -122,7 +121,7 @@
                                     FontWeight="DemiBold"/>
                                 <TextBlock 
                                     Text="{Binding Description}"
-                                    Foreground="#b5b5b5"
+                                    Foreground="{StaticResource GrayV1Brush}"
                                     Margin="0,10,0,0"
                                     TextWrapping="Wrap"/>
                             </StackPanel>

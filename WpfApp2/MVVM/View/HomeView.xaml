@@ -7,10 +7,44 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="450"
-             Background="#141414"
+             Background="{StaticResource GrayV2Brush}"
              Style="{StaticResource FadeInUserControlStyle}">
 
     <Grid>
+
+        <Canvas 
+            Opacity="0.15">
+            <Rectangle 
+                Fill="#333333" 
+                Width="100"
+                Height="100"
+                Canvas.Left="50" 
+                Canvas.Top="50"
+                RadiusX="10"
+                RadiusY="10" />
+            <Rectangle 
+                Fill="#444444"
+                Width="120" 
+                Height="120" 
+                Canvas.Left="200"
+                Canvas.Top="120"
+                RadiusX="15"
+                RadiusY="15" />
+            <Rectangle 
+                Fill="#555555" 
+                Width="150" 
+                Height="150" 
+                Canvas.Left="350"
+                Canvas.Top="250"
+                RadiusX="20"
+                RadiusY="20" />
+            <Ellipse 
+                Fill="#222222"
+                Width="200" 
+                Height="200" 
+                Canvas.Left="50"
+                Canvas.Top="300" />
+        </Canvas>
 
         <StackPanel
             Orientation="Vertical"
@@ -28,9 +62,9 @@
                 Margin="0,15,0,0"
                 Text="This software is designed to view the characteristics of the system hardware. It provides the user with information about key components."
                 TextWrapping="Wrap"
-                TextAlignment="Center"
+                TextAlignment="Left"
                 FontSize="15"
-                Foreground="#b5b5b5"
+                Foreground="{StaticResource GrayV1Brush}"
                 HorizontalAlignment="Center"/>
 
             <ItemsControl 
@@ -40,8 +74,9 @@
                     <DataTemplate>
                         <Border
                             Margin="10,10,0,0"
-                            BorderThickness="1"
-                            BorderBrush="#2b2b2b"
+                            x:Name="border"
+                            BorderThickness="2"
+                            BorderBrush="{StaticResource GrayV3Brush}"
                             Padding="15,15"
                             CornerRadius="5">
                             <Border.ToolTip>
@@ -49,23 +84,52 @@
                                     Background="Transparent" 
                                     BorderThickness="0">
                                     <Border 
-                                        Background="#0d0d0d"
+                                        Background="{StaticResource GrayV2Brush}"
                                         CornerRadius="5"
                                         BorderThickness="1"
-                                        BorderBrush="#2b2b2b">
+                                        BorderBrush="{StaticResource GrayV4VBrush}">
                                         <TextBlock 
                                             Padding="10"
                                             Text="Go to hardware page"
-                                            Foreground="#b5b5b5"/>
+                                            Foreground="{StaticResource GrayV1Brush}"/>
                                     </Border>
                                 </ToolTip>
                             </Border.ToolTip>
+
+                            <Border.Triggers>
+                                <EventTrigger 
+                                    RoutedEvent="UIElement.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation
+                                                Storyboard.TargetName="border"
+                                                Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                From="{StaticResource GrayV3}"
+                                                To="{StaticResource GrayV4}"
+                                                Duration="0:0:0.6" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger 
+                                    RoutedEvent="UIElement.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation
+                                                Storyboard.TargetName="border"
+                                                Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                From="{StaticResource GrayV4}"
+                                                To="{StaticResource GrayV3}"
+                                                Duration="0:0:0.6" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Border.Triggers>
                             
                             <TextBlock
                                 Text="{Binding Name}"
                                 FontSize="15"
                                 FontWeight="DemiBold"
-                                Foreground="#c9615b"/>
+                                Foreground="{StaticResource RedBrush}"/>
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

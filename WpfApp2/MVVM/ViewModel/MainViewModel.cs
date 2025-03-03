@@ -20,7 +20,6 @@ public class MainViewModel : Core.ViewModel
     }
 
     public ICommand NavigateToHomeViewCommand { get; set; }
-    public ICommand NavigateToSettingsViewCommand { get; set; }
     public ICommand NavigateToHardwareViewCommand { get; set; }
     public ICommand MoveWindowCommand { get; set; }
     public ICommand MinimizeWindowCommand { get; set; }
@@ -38,9 +37,6 @@ public class MainViewModel : Core.ViewModel
 
         NavigateToHomeViewCommand = new RelayCommand(_ =>
             NavigationService.NavigateTo<HomeViewModel>());
-
-        NavigateToSettingsViewCommand = new RelayCommand(_ =>
-            NavigationService.NavigateTo<SettingsViewModel>());
 
         NavigateToHardwareViewCommand = new RelayCommand(_ =>
             NavigationService.NavigateTo<HardwareViewModel>());

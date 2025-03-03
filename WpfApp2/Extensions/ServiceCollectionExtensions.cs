@@ -21,7 +21,6 @@ public static class ServiceCollectionExtensions
 
         services.AddSingleton<MainViewModel>();
         services.AddSingleton<HomeViewModel>();
-        services.AddSingleton<SettingsViewModel>();
         services.AddSingleton<HardwareViewModel>();
 
         services.AddSingleton<INavigationService, NavigationService>();

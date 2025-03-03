@@ -32,6 +32,54 @@
         </Setter>
     </Style>
 
-
+    <Style
+        x:Key="NavigationButtonStyle"
+        TargetType="{x:Type RadioButton}">
+        <Setter Property="Background" Value="#0d0d0d"/>
+        <Setter Property="Foreground" Value="Gray" />
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+           <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                   <Border
+                       Background="{TemplateBinding Background}"
+                       BorderThickness="{TemplateBinding BorderThickness}"
+                       >
+                       <Grid>
+                           <Rectangle 
+                               Name="indicator"
+                               HorizontalAlignment="Left"
+                               Width="3"
+                               Margin="5,0,0,0"/>
+                           <TextBlock
+                               Name="text"
+                               Text="{TemplateBinding Content}"
+                               HorizontalAlignment="Left"
+                               Margin="15,0,0,0"
+                               Foreground="{TemplateBinding Foreground}"
+                               FontWeight="{TemplateBinding FontWeight}"
+                               FontSize="{TemplateBinding FontSize}"
+                               TextTrimming="CharacterEllipsis"/>
+                       </Grid>
+                   </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger
+                            Property="IsChecked"
+                            Value="True">
+                            <Setter 
+                                TargetName="indicator" 
+                                Property="Shape.Fill"
+                                Value="#c9615b"/>
+                            <Setter 
+                                TargetName="text" 
+                                Property="Foreground"
+                                Value="White"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 </ResourceDictionary>

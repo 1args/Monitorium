@@ -13,7 +13,7 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
-        Background="#0d0d0d">
+        Background="{StaticResource GrayV3Brush}">
 
     <Grid>
 
@@ -38,7 +38,7 @@
             <!-- Title -->
             <TextBlock
                 Text="Monitorium"
-                Foreground="#b5b5b5"
+                Foreground="{StaticResource GrayV1Brush}"
                 VerticalAlignment="Center" 
                 Margin="15,0,0,0"/>
 
@@ -50,7 +50,7 @@
                 Grid.Column="1">
                 <Button
                     Content="➖" 
-                    Foreground="#b5b5b5"
+                    Foreground="{StaticResource GrayV1Brush}"
                     FontSize="9"
                     Style="{StaticResource WindowButtonStyle}" 
                     Command="{Binding MinimizeWindowCommand}"/>
@@ -59,7 +59,7 @@
                     Command="{Binding MaximizeWindowCommand}">
                     <iconPack:PackIconModern
                         Kind="WindowRestore"
-                        Foreground="#b5b5b5"
+                        Foreground="{StaticResource GrayV1Brush}"
                         Height="10"
                         Width="10"/>
                 </Button>
@@ -68,7 +68,7 @@
                     Command="{Binding CloseWindowCommand}">
                     <iconPack:PackIconModern
                         Kind="Close"
-                        Foreground="#b5b5b5"
+                        Foreground="{StaticResource GrayV1Brush}"
                         Height="10"
                         Width="10"/>
                 </Button>
@@ -83,34 +83,37 @@
         <!-- Main content -->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="125"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <!-- Navigation bar -->
             <StackPanel 
-                Grid.Column="0">
-                <Button 
-                    Height="45"
-                    Content="HomeView"
-                    Command="{Binding NavigateToHomeViewCommand}"/>
-                <Button 
-                    Height="45" 
-                    Content="SettingsView" 
-                    Command="{Binding NavigateToSettingsViewCommand}"/>
-                <Button 
-                    Height="45" 
-                    Content="HardwareView" 
-                    Command="{Binding NavigateToHardwareViewCommand}"/>
+                Grid.Column="0"
+                Margin="0,10,0,0">
+                <RadioButton 
+                    Content="Home"
+                    Command="{Binding NavigateToHomeViewCommand}"
+                    Style="{StaticResource NavigationButtonStyle}"
+                    FontSize="13"
+                    FontWeight="DemiBold"
+                    IsChecked="True"/>
+                <RadioButton 
+                    Margin="0,10,0,0"
+                    Content="Hardware" 
+                    Command="{Binding NavigateToHardwareViewCommand}"
+                    Style="{StaticResource NavigationButtonStyle}"
+                    FontSize="13"
+                    FontWeight="DemiBold"/>
             </StackPanel>
 
-            <Grid Grid.Column="1" Background="#141414"/>
+            <Grid Grid.Column="1" Background="{StaticResource GrayV2Brush}"/>
 
             <!-- View -->
             <ContentControl
                 Grid.Column="1" 
                 Content="{Binding NavigationService.CurrentView}"
-                Background="#141414"/>
+                Background="{StaticResource GrayV2Brush}"/>
         </Grid>
     </Grid>
 </Window>
