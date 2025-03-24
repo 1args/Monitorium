@@ -9,7 +9,7 @@ namespace WpfApp2.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-    public static void ConfigureService(this IServiceCollection services)
+    public static void ConfigureServices(this IServiceCollection services)
     {
         services.AddSingleton<MainWindow>(provider => new MainWindow()
         {

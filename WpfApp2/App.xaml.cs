@@ -11,7 +11,7 @@ public partial class App : Application
     public App()
     {
         var services = new ServiceCollection();
-        services.ConfigureService();
+        services.ConfigureServices();
 
         _serviceProvider = services.BuildServiceProvider();
     }
