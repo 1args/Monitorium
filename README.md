@@ -18,7 +18,7 @@ Used:
 - Splitting into separate styles
 - .NET 9
 
-The project contains an example of clean architecture through the use of modern, relevant solutions. MainWindow is used as the main window. Pages are represented by UserControl elements. The interface may not look great, because I'm not very creative. The project contains a simple logic: the application receives data about the hardware.
+The project contains an example of clean architecture through the use of modern, relevant solutions. MainWindow is used as the main window. Pages are represented by UserControl elements. The project contains a simple logic: the application receives data about the hardware.
 
 Added nuget packages:
 - Microsoft.Extensions.DependencyInjection
